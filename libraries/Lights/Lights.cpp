@@ -7,5 +7,15 @@
 
 Lights::Lights()
 {
-  //Setup
+  pinMode(13, OUTPUT);
+}
+
+void Lights::run()
+{
+  digitalWrite(LED_BUILTIN, HIGH);
+}
+
+void Lights::checkLights()
+{
+
 }

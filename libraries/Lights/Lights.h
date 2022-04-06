@@ -11,6 +11,10 @@ class Lights
 {
   public:
     Lights();
+    void on();
+    void run();
+    void checkLights();
+
   private:
 };
 

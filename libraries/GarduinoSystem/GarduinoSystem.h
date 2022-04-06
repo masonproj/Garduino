@@ -16,6 +16,12 @@ class GarduinoSystem
     GarduinoSystem();
     void on();
     void run();
+    void startClock();
+    void outputClock();
+    void updateTime();
+    void startSensor();
+    void updateSensor();
+
     char daysOfTheWeek[7][12];
   private:
 };

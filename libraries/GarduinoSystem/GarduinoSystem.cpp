@@ -15,10 +15,20 @@ RTC_DS1307 rtc;
 
 GarduinoSystem::GarduinoSystem()
 {
-
+  lights.run();
 }
 
 void GarduinoSystem::on()
+{
+  GarduinoSystem::startClock();
+}
+
+void GarduinoSystem::run()
+{
+  GarduinoSystem::outputClock();
+}
+
+void GarduinoSystem::startClock()
 {
   char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
   Serial.begin(57600);
@@ -51,8 +61,7 @@ void GarduinoSystem::on()
   // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));
 }
 
-void GarduinoSystem::run()
-{
+void GarduinoSystem::outputClock() {
     DateTime now = rtc.now();
 
     Serial.print(now.year(), DEC);
@@ -70,16 +79,10 @@ void GarduinoSystem::run()
     Serial.print(now.second(), DEC);
     Serial.println();
 
-    Serial.print(" since midnight 1/1/1970 = ");
-    Serial.print(now.unixtime());
-    Serial.print("s = ");
-    Serial.print(now.unixtime() / 86400L);
-    Serial.println("d");
-
     // calculate a date which is 7 days, 12 hours, 30 minutes, and 6 seconds into the future
-    DateTime future (now + TimeSpan(7,12,30,6));
+    DateTime future (now + TimeSpan(0,24,0,0));
 
-    Serial.print(" now + 7d + 12h + 30m + 6s: ");
+    Serial.print("In one day: ");
     Serial.print(future.year(), DEC);
     Serial.print('/');
     Serial.print(future.month(), DEC);
@@ -95,4 +98,19 @@ void GarduinoSystem::run()
 
     Serial.println();
     delay(3000);
+}
+
+void GarduinoSystem::updateTime()
+{
+  
+}
+
+void GarduinoSystem::startSensor()
+{
+
+}
+
+void GarduinoSystem::updateSensor()
+{
+
 }
