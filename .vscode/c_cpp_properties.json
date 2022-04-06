@@ -19,6 +19,7 @@
             "cppStandard": "gnu++14",
             "defines": [
                 "_DEBUG",
+                "USBCON",
                 "UNICODE",
                 "_UNICODE"
             ]
