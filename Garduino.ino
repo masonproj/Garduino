@@ -1,12 +1,11 @@
-#include <System.h>
-#include <Water.h>
+#include <GarduinoSystem.h>
 
-System system;
+GarduinoSystem garduinoSystem;
 
 void setup() {
-  
+  garduinoSystem.on();
 }
 
 void loop() {
-  
+  garduinoSystem.run();
 }
