@@ -7,5 +7,39 @@
 
 Water::Water()
 {
-  //Setup
+
+}
+
+void Water::sensorOn()
+{
+
+}
+
+void Water::sensorOff()
+{
+
+}
+
+boolean Water::checkMoisture()
+{
+  int sensorPin = A0; 
+  int sensorValue;  
+  int limit = 600; 
+
+  sensorValue = analogRead(sensorPin); 
+  Serial.print("Analog Value: ");
+  Serial.println(sensorValue);
+  if (sensorValue > limit)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+void Water::waterPlant()
+{
+  
 }
