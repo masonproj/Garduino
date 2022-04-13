@@ -26,9 +26,8 @@ boolean Water::checkMoisture()
   int sensorValue;  
   int limit = 600; 
 
-  sensorValue = analogRead(sensorPin); 
-  Serial.print("Analog Value: ");
-  Serial.println(sensorValue);
+  sensorValue = analogRead(sensorPin);
+  
   if (sensorValue > limit)
   {
     return true;

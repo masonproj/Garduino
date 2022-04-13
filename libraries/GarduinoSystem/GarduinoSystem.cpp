@@ -31,7 +31,6 @@ void GarduinoSystem::on()
 
 void GarduinoSystem::run()
 {
-  //minutely();
   hourly();
 }
 
@@ -53,19 +52,6 @@ void GarduinoSystem::startClock()
   if (! rtc.isrunning()) 
   {
     rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
-  }
-}
-
-void GarduinoSystem::minutely()
-{
-  DateTime now = rtc.now();
-  DateTime future = (now + TimeSpan(0,0,1,0));
-
-  if(futureMin <= now.minute())
-  {
-    //Execute this code every minute and update for next minute
-    
-    futureMin = future.minute();
   }
 }
 

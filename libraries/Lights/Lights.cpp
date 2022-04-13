@@ -12,6 +12,11 @@ Lights::Lights()
 
 void Lights::run()
 {
+  
+}
+
+void Lights::on()
+{
   digitalWrite(LED_BUILTIN, HIGH);
 }
 
