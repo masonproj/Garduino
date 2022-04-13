@@ -16,13 +16,17 @@ class GarduinoSystem
     GarduinoSystem();
     void on();
     void run();
+    void minutely();
+    void hourly();
     void startClock();
     void outputClock();
     void updateTime();
-    void startSensor();
-    void updateSensor();
 
     char daysOfTheWeek[7][12];
+    DateTime now;
+    DateTime future;
+    int futureMin;
+    int futureHour;
   private:
 };
 

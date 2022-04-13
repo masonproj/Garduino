@@ -2,10 +2,12 @@
 
 GarduinoSystem garduinoSystem;
 
-void setup() {
+void setup()
+{
   garduinoSystem.on();
 }
 
-void loop() {
+void loop()
+{
   garduinoSystem.run();
 }
