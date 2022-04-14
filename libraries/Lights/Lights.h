@@ -11,10 +11,14 @@ class Lights
 {
   public:
     Lights();
-    void on();
     void run();
-    void checkLights();
-
+    void setLightLevel();
+    int getLightLevel();
+    void setLightStatus();
+    boolean getLightStatus();
+    void lightControl();
+    void lightOn();
+    void lightOff();
   private:
 };
 
