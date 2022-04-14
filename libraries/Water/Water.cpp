@@ -5,30 +5,34 @@
 #include "Arduino.h"
 #include "Water.h"
 
+int sensorPin;
+int sensorValue;
+
 Water::Water()
 {
-
+  sensorPin = A0; 
 }
 
-void Water::sensorOn()
+void Water::run()
 {
-
+  
 }
 
-void Water::sensorOff()
+void Water::setSensorValue()
 {
+  sensorValue = analogRead(sensorPin);
+}
 
+int Water::getSensorValue()
+{
+  return sensorValue;
 }
 
 boolean Water::checkMoisture()
 {
-  int sensorPin = A0; 
-  int sensorValue;  
-  int limit = 600; 
-
-  sensorValue = analogRead(sensorPin);
-  
-  if (sensorValue > limit)
+  int limit = 600;
+  setSensorValue();
+  if(getSensorValue() > limit)
   {
     return true;
   }
@@ -40,5 +44,5 @@ boolean Water::checkMoisture()
 
 void Water::waterPlant()
 {
-  
+
 }

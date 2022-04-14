@@ -11,9 +11,10 @@ class Water
 {
   public:
     Water();
-    void sensorOn();
-    void sensorOff();
+    void run();
     boolean checkMoisture();
+    int getSensorValue();
+    void setSensorValue();
     void waterPlant();
   private:
 };

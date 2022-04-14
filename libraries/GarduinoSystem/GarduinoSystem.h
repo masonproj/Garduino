@@ -16,13 +16,17 @@ class GarduinoSystem
     GarduinoSystem();
     void on();
     void run();
+    boolean getButtonStatus();
+    void setButtonStatus();
     void hourly();
     void startClock();
+    void manualStart();
 
     DateTime now;
     DateTime future;
     int futureMin;
     int futureHour;
+    boolean buttonStatus;
   private:
 };
 
