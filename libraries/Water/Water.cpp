@@ -13,11 +13,6 @@ Water::Water()
   sensorPin = A0; 
 }
 
-void Water::run()
-{
-  
-}
-
 void Water::setSensorValue()
 {
   sensorValue = analogRead(sensorPin);

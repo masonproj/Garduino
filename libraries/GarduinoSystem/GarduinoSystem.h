@@ -24,7 +24,6 @@ class GarduinoSystem
 
     DateTime now;
     DateTime future;
-    int futureMin;
     int futureHour;
     boolean buttonStatus;
   private:

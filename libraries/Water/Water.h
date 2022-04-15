@@ -11,7 +11,6 @@ class Water
 {
   public:
     Water();
-    void run();
     boolean checkMoisture();
     int getSensorValue();
     void setSensorValue();
