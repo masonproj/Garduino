@@ -40,7 +40,7 @@ boolean Lights::getLightStatus()
   return lightStatus;
 }
 
-void setLightStatus(boolean status)
+void Lights::setLightStatus(boolean status)
 {
   if(status)
   {

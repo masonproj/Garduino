@@ -14,7 +14,7 @@ class Lights
     void run();
     void setLightLevel();
     int getLightLevel();
-    void setLightStatus();
+    void setLightStatus(boolean);
     boolean getLightStatus();
     void lightControl();
     void lightOn();

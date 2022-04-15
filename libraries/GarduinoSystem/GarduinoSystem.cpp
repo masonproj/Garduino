@@ -12,7 +12,6 @@
 Water water;
 Lights lights;
 RTC_DS1307 rtc;
-int futureMin;
 int futureHour;
 
 int buttonPin;
@@ -25,10 +24,7 @@ GarduinoSystem::GarduinoSystem()
 
   pinMode(buttonPin, INPUT_PULLUP);
 
-  DateTime future = (now + TimeSpan(0,0,1,0));
-  futureMin = future.minute();
-
-  future = (now + TimeSpan(0,1,0,0));
+  DateTime future = (now + TimeSpan(0,1,0,0));
   futureHour = future.hour();
 }
 
@@ -97,6 +93,15 @@ void GarduinoSystem::hourly()
     }
     futureHour = future.hour();
   }
+
+  if(now.hour() > 8 && now.hour() < 18)
+  {
+    lights.setLightStatus(true);
+  }
+  else
+  {
+    lights.setLightStatus(false);
+  }
 }
 
 void GarduinoSystem::manualStart()
@@ -104,10 +109,6 @@ void GarduinoSystem::manualStart()
   setButtonStatus();
   if (getButtonStatus() == HIGH)
   {
-    lights.lightOn();
-  }
-  else
-  {
-    lights.lightOff();
+    water.waterPlant();
   }
 }
