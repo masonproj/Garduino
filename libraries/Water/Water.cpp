@@ -8,9 +8,14 @@
 int sensorPin;
 int sensorValue;
 
+int pumpPin;
+
 Water::Water()
 {
   sensorPin = A0; 
+  pumpPin = 9;
+
+  pinMode(pumpPin, OUTPUT);
 }
 
 void Water::setSensorValue()
@@ -39,5 +44,7 @@ boolean Water::checkMoisture()
 
 void Water::waterPlant()
 {
-
+  digitalWrite(pumpPin, HIGH);
+  delay(3500);
+  digitalWrite(pumpPin, LOW);
 }

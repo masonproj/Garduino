@@ -24,6 +24,7 @@ GarduinoSystem::GarduinoSystem()
 
   pinMode(buttonPin, INPUT_PULLUP);
 
+  DateTime now = rtc.now();
   DateTime future = (now + TimeSpan(0,1,0,0));
   futureHour = future.hour();
 }
@@ -37,7 +38,6 @@ void GarduinoSystem::run()
 {
   manualStart();
   hourly();
-  lights.run();
 }
 
 boolean GarduinoSystem::getButtonStatus()
@@ -86,21 +86,20 @@ void GarduinoSystem::hourly()
 
   if(futureHour <= now.hour() && futureHour != 0 || futureHour == now.hour() && futureHour == 0)
   {
-    //Execute this code every hour and update for next hour
     if(water.checkMoisture())
     {
       water.waterPlant();
     }
-    futureHour = future.hour();
-  }
 
-  if(now.hour() > 8 && now.hour() < 18)
-  {
-    lights.setLightStatus(true);
-  }
-  else
-  {
-    lights.setLightStatus(false);
+    if(now.hour() > 8 && now.hour() < 18)
+    {
+      lights.lightOn();
+    }
+    else
+    {
+      lights.lightOff();
+    }
+    futureHour = future.hour();
   }
 }
 

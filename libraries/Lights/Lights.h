@@ -7,19 +7,19 @@
 
 #include "Arduino.h"
 
+/* Class to control the lighting for Garduino */
 class Lights
 {
   public:
+    /* Initialize light pin and set it's mode */
     Lights();
-    void run();
-    void setLightLevel();
-    int getLightLevel();
-    void setLightStatus(boolean);
-    boolean getLightStatus();
-    void lightControl();
+    /* Turn lights on */
     void lightOn();
+    /* Turn lights off */
     void lightOff();
-  private:
+
+    /* Variable for light pin */
+    int lightPin;
 };
 
 #endif
